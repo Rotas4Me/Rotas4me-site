@@ -11,11 +11,10 @@ const Footer = () => (
         </div>
       </div>
       <div className="flex items-center justify-center gap-6 mt-4 md:mt-0">
-        <a href="#" aria-label="Instagram" className="text-gray-800 hover:text-pink-500 transition">
+        <a href="https://www.instagram.com/rotas4me/" aria-label="Instagram" className="text-gray-800 hover:text-pink-500 transition">
           <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
         </a>
-        <a href="#" aria-label="Facebook" className="text-gray-800 hover:text-blue-600 transition font-bold text-lg" style={{fontFamily: 'Arial'}}>f</a>
-        <a href="#" aria-label="LinkedIn" className="text-gray-800 hover:text-blue-700 transition font-bold text-lg" style={{fontFamily: 'Arial'}}>in</a>
+        <a href="https://www.linkedin.com/company/rotas4me" aria-label="LinkedIn" className="text-gray-800 hover:text-blue-700 transition font-bold text-lg" style={{fontFamily: 'Arial'}}>in</a>
       </div>
     </div>
   </footer>
