@@ -1,6 +1,22 @@
+'use client';
+
 import Image from "next/image";
+import { useState } from "react";
+import LeadForm from "./components/LeadForm";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState('');
+
+  const handlePlanClick = (plan: string) => {
+    setSelectedPlan(plan);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedPlan('');
+  };
   return (
     <>
       <section
@@ -116,12 +132,12 @@ export default function Home() {
             <div className="text-lg md:text-xl lg:text-[30px] font-semibold text-[#69B7EE] mb-4">
               R$0,00
             </div>
-            <a
-              href="#"
-              className="mt-auto bg-[#69B7EE] hover:bg-sky-600 text-whit text-[15px] md:text-[16px] lg:text-[20px] font-extrabold px-4 md:px-6 lg:px-8 py-2 md:py-3 rounded-lg transition-colors font-poppins w-full text-center"
+            <button
+              onClick={() => handlePlanClick('Gratuito')}
+              className="mt-auto bg-[#69B7EE] hover:bg-sky-600 text-white text-[15px] md:text-[16px] lg:text-[20px] font-extrabold px-4 md:px-6 lg:px-8 py-2 md:py-3 rounded-lg transition-colors font-poppins w-full text-center"
             >
               Começar a usar
-            </a>
+            </button>
           </div>
           <div className="flex flex-col items-center bg-[#FAFAFA] rounded-2xl p-4 md:p-6 lg:p-8 h-full shadow-sm">
             <h3 className="text-xl md:text-2xl lg:text-[35px] font-bold text-[#D65E75] mb-2 font-poppins uppercase">
@@ -156,12 +172,12 @@ export default function Home() {
             <div className="text-lg md:text-xl lg:text-[30px] font-semibold text-[#D65E75] mb-4">
               R$9,90/mês
             </div>
-            <a
-              href="#"
+            <button
+              onClick={() => handlePlanClick('Premium')}
               className="mt-auto bg-[#D65E75] hover:bg-pink-600 text-white text-[15px] md:text-[16px] lg:text-[20px] font-extrabold px-4 md:px-6 lg:px-8 py-2 md:py-3 rounded-lg transition-colors font-poppins w-full text-center"
             >
               Adquirir plano
-            </a>
+            </button>
           </div>
           <div className="flex flex-col items-center bg-[#FAFAFA] rounded-2xl p-4 md:p-6 lg:p-8 h-full shadow-sm">
             <h3 className="text-lg md:text-xl lg:text-[30px] font-bold text-[#33363F] mb-2 font-poppins uppercase">
@@ -192,12 +208,12 @@ export default function Home() {
               patrimonial, CRM social)
             </p>
             <div className="text-lg md:text-xl lg:text-2xl font-bold text-[#33363F] mb-4">-</div>
-            <a
-              href="#"
+            <button
+              onClick={() => handlePlanClick('Institucional')}
               className="mt-auto bg-[#33363F] hover:bg-gray-900 text-white text-[15px] md:text-[16px] lg:text-[20px] font-extrabold px-4 md:px-6 lg:px-8 py-2 md:py-3 rounded-lg transition-colors font-poppins w-full text-center"
             >
               Entrar em contato
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -281,6 +297,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <LeadForm 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        selectedPlan={selectedPlan} 
+      />
     </>
   );
 }
