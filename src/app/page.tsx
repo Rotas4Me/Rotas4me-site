@@ -31,13 +31,13 @@ export default function Home() {
           </h1>
           <div className="flex flex-col sm:flex-row items-center gap-4 md:ml-24 lg:ml-52 w-full sm:w-auto text-center">
             <a
-              href="https://github.com/Fabricio-Antonio/Rotas4me-mobile"
+              href="https://www.youtube.com/shorts/B-SbikprP_s" target="_blank"
               className="bg-[#D65E75] hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition-colors font-poppins text-lg w-full sm:w-auto"
             >
               Versão Demo
             </a>
             <a
-              href="https://youtu.be/TQDn3RTcNbs?si=Cg2VwGuB7ZEejFCf"
+              href="https://github.com/Rotas4Me" target="_blank"
               className="text-white font-medium underline-offset-2 hover:underline font-poppins text-lg w-full sm:w-auto"
             >
               Saber mais
@@ -219,16 +219,16 @@ export default function Home() {
       </section>
 
       <section id="initiative" className="w-full flex justify-center items-center py-10 md:py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl md:max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 lg:gap-16 px-2 md:px-4">
-          <div className="flex-1 flex flex-col items-center md:items-start md:pr-4 lg:pr-8 mb-8 md:mb-0">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-[#33363F] leading-tight font-poppins text-center md:text-left">
+        <div className="max-w-4xl md:max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10 lg:gap-12 xl:gap-16 px-2 md:px-4">
+          <div className="flex-1 flex flex-col items-center md:items-start md:pr-4 lg:pr-6 xl:pr-8 mb-8 md:mb-0">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#33363F] leading-tight font-poppins text-center md:text-left">
               Nossa
               <br />
               Iniciativa
             </h2>
           </div>
           <div className="flex-1 w-full">
-            <div className="bg-gray-50 rounded-xl p-4 md:p-6 w-full sm:w-[28rem] md:w-[32rem] lg:w-[52rem] text-base md:text-[1.1rem] lg:text-[1.25rem] mx-auto">
+            <div className="bg-gray-50 rounded-xl p-4 md:p-6 w-full sm:w-[28rem] md:w-[32rem] lg:w-[40rem] xl:w-[52rem] text-base md:text-[1.1rem] lg:text-[1.15rem] xl:text-[1.25rem] mx-auto">
               <p className="text-[#33363F] text-base mb-2">
                 <span className="font-bold">Rotas4Me</span> não é só um
                 aplicativo. É uma comunidade que protege umas às outras. É sobre
@@ -236,7 +236,7 @@ export default function Home() {
               </p>
               <p className="text-[#33363F] text-base">
                 Seja para ir pra casa, pro trabalho ou pra vida, {" "}
-                <span className="font-bold">caminhe com a gente!</span>
+                <span className="font-bold">caminhe com a gente! 🩷</span>
               </p>
             </div>
           </div>
@@ -246,52 +246,71 @@ export default function Home() {
       <section className="w-full py-8 md:py-10 lg:py-16 bg-white flex justify-center items-center">
         <div className="max-w-4xl md:max-w-6xl w-full flex flex-col items-center">
           <div className="w-full flex flex-col sm:flex-row justify-center items-center sm:items-start gap-6 md:gap-8 lg:gap-0">
+            {/* Radymilla Camilo - Substitua a URL abaixo pela URL real da foto do LinkedIn */}
             <div className="flex-1 w-full flex flex-col items-center mb-6 md:mb-8 lg:mb-0">
-              <a href="https://www.linkedin.com/in/radymilla-cristiano/" target="_blank" className="text-black font-bold font-poppins text-base text-center">
-                Radymilla Camilo
+              <a href="https://www.linkedin.com/in/radymilla-cristiano/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="relative mb-4">
+                  <Image
+                    src="https://media.licdn.com/dms/image/v2/D4D03AQFjtnLzYPMQSw/profile-displayphoto-shrink_200_200/B4DZaDsj4bH4Ac-/0/1745966219709?e=1770854400&v=beta&t=OIUQ_1G8wdpzZviQnbGkf4PmXeVCh28DqsBrhAO49Yk"
+                    alt="Radymilla Camilo"
+                    width={120}
+                    height={120}
+                    className="rounded-full object-cover border-4 border-gray-200 hover:border-pink-500 transition-colors"
+                    unoptimized
+                  />
+                </div>
+                <span className="text-black font-bold font-poppins text-base text-center">
+                  Radymilla Camilo
+                </span>
               </a>
               <span className="text-black text-sm text-center">
-                Product & Brand
+                Co-founder
                 <br />
-                Designer
+                Head of Product & Design
               </span>
             </div>
+            {/* Kayus Gracco - Substitua a URL abaixo pela URL real da foto do LinkedIn */}
             <div className="flex-1 w-full flex flex-col items-center mb-6 md:mb-8 lg:mb-0">
-              <a href="https://www.linkedin.com/in/engkayusgracco/" target="_blank" className="text-black font-bold font-poppins text-base text-center">
-                Kayus Gracco
+              <a href="https://www.linkedin.com/in/engkayusgracco/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="relative mb-4">
+                  <Image
+                    src="https://media.licdn.com/dms/image/v2/D4D03AQFxFowKhTalGQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1712526056132?e=1770854400&v=beta&t=_ay-WoFtS_YTHEQd-G7E7MV8tOUJLwpr9QHPwBf9V1Q"
+                    alt="Kayus Gracco"
+                    width={120}
+                    height={120}
+                    className="rounded-full object-cover border-4 border-gray-200 hover:border-pink-500 transition-colors"
+                    unoptimized
+                  />
+                </div>
+                <span className="text-black font-bold font-poppins text-base text-center">
+                  Kayus Gracco
+                </span>
               </a>
               <span className="text-black text-sm text-center">
-                Business &<br />
-                VideoMaker
+                Co-founder <br />
+                Head of Business
               </span>
             </div>
+            {/* Fabrício Santos - Substitua a URL abaixo pela URL real da foto do LinkedIn */}
             <div className="flex-1 w-full flex flex-col items-center mb-6 md:mb-8 lg:mb-0">
-              <a href="https://www.linkedin.com/in/luiza-ju%C3%A1-589b96311/" target="_blank" className="text-black font-bold font-poppins text-base text-center">
-                Luiza Juá
+              <a href="https://www.linkedin.com/in/fabricio-ss/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="relative mb-4">
+                  <Image
+                    src="https://media.licdn.com/dms/image/v2/D4D03AQGDmFbX2cgQGg/profile-displayphoto-shrink_200_200/B4DZdao4j_GYAY-/0/1749572356819?e=1770854400&v=beta&t=8cVqBT7W-pkBMOfxHl-CAOQj45VSG1V4Rf3RoPz-12o"
+                    alt="Fabrício Santos"
+                    width={120}
+                    height={120}
+                    className="rounded-full object-cover border-4 border-gray-200 hover:border-pink-500 transition-colors"
+                    unoptimized
+                  />
+                </div>
+                <span className="text-black font-bold font-poppins text-base text-center">
+                  Fabrício Santos
+                </span>
               </a>
               <span className="text-black text-sm text-center">
-                Research & Data
-                <br />
-                Analysis
-              </span>
-            </div>
-            <div className="flex-1 w-full flex flex-col items-center mb-6 md:mb-8 lg:mb-0">
-              <a href="https://www.linkedin.com/in/fabricio-ss/" target="_blank" className=" text-black font-bold font-poppins text-base text-center">
-                Fabrício Santos
-              </a>
-              <span className="text-black text-sm text-center">
-                Web & Mobile
-                <br />
-                Developer
-              </span>
-            </div>
-            <div className="flex-1 w-full flex flex-col items-center">
-              <a href="https://www.linkedin.com/in/thauan-rodrigues-1744072a6/" target="_blank" className=" text-black font-bold font-poppins text-base text-center">
-                Thauan Rodrigues
-              </a>
-              <span className="text-black text-sm text-center">
-                Back-end Developer
-                <br />& DevOps
+                Co-founder <br/>
+                Head of Technology
               </span>
             </div>
           </div>
