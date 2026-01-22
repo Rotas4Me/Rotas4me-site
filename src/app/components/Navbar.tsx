@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
           <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full flex flex-col items-center">
             <span className="text-[#D65E75] text-4xl mb-4">🗺️</span>
             <p className="text-gray-800 text-center mb-6 font-poppins">
-              Estamos trabalhando para colocarmos o <b>Rotas4me</b> disponível para download
+              Estamos trabalhando para colocarmos o <b>Rotas4Me</b> disponível para download! <br/><br/> Selecione um dos planos abaixo e deixe seu contato para receber atualizações.
             </p>
             <button
               onClick={() => setShowAlert(false)}
