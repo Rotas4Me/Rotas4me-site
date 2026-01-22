@@ -20,13 +20,21 @@ export default function LeadForm({ isOpen, onClose, selectedPlan }: LeadFormProp
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  // Atualizar o plano quando selectedPlan mudar
+  // Inicializar EmailJS quando o componente montar
   useEffect(() => {
-    setFormData(prev => ({
-      ...prev,
-      plan: selectedPlan
-    }));
-  }, [selectedPlan]);
+    const publicKey = 'AzGWZV0vXyO3j6uXm';
+    emailjs.init(publicKey);
+  }, []);
+
+  // Atualizar o plano quando selectedPlan mudar ou quando o modal abrir
+  useEffect(() => {
+    if (isOpen && selectedPlan) {
+      setFormData(prev => ({
+        ...prev,
+        plan: selectedPlan
+      }));
+    }
+  }, [selectedPlan, isOpen]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -47,40 +55,84 @@ export default function LeadForm({ isOpen, onClose, selectedPlan }: LeadFormProp
       const templateId = 'template_aahdrp4';
       const publicKey = 'AzGWZV0vXyO3j6uXm';
 
-      // Dados para o template
+      // Usar selectedPlan diretamente para garantir que o plano correto seja enviado
+      const planToSend = selectedPlan || formData.plan || 'Não informado';
+      
+      // Dados para o template - EmailJS usa {{nome_da_variavel}} no template
+      // IMPORTANTE: O template do EmailJS usa {{selected_plan}}
       const templateParams = {
-        plan: formData.plan,
+        // Variável principal do plano (corresponde ao {{selected_plan}} no template)
+        selected_plan: planToSend,
+        // Também enviar como plan para compatibilidade
+        plan: planToSend,
+        // Variáveis do usuário
         fullName: formData.fullName,
         email: formData.email,
         whatsapp: formData.whatsapp,
+        // Formato padrão do EmailJS (caso o template use)
+        from_name: formData.fullName,
+        from_email: formData.email,
+        // Formato alternativo (caso o template use)
+        user_plan: planToSend,
+        user_name: formData.fullName,
+        user_email: formData.email,
+        user_whatsapp: formData.whatsapp,
+        // Mensagem completa (caso o template use)
+        message: `Plano: ${planToSend}\nNome: ${formData.fullName}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}`,
       };
 
-      console.log('Enviando dados para EmailJS:', templateParams);
+      console.log('=== DEBUG EMAILJS ===');
+      console.log('Plano selecionado:', selectedPlan);
+      console.log('Plano no formData:', formData.plan);
+      console.log('Plano que será enviado:', planToSend);
+      console.log('Todos os parâmetros:', templateParams);
+      console.log('Service ID:', serviceId);
+      console.log('Template ID:', templateId);
+      console.log('===================');
 
       // Enviar email
-      await emailjs.send(
+      const response = await emailjs.send(
         serviceId,
         templateId,
         templateParams,
         publicKey
       );
 
-      setIsSuccess(true);
-      // Resetar formulário após 2 segundos
-      setTimeout(() => {
-        setIsSuccess(false);
-        setFormData({
-          plan: selectedPlan,
-          fullName: '',
-          email: '',
-          whatsapp: ''
-        });
-        onClose();
-      }, 2000);
+      console.log('Resposta do EmailJS:', response);
 
-    } catch (err) {
+      if (response.status === 200) {
+        setIsSuccess(true);
+        // Resetar formulário após 2 segundos
+        setTimeout(() => {
+          setIsSuccess(false);
+          setFormData({
+            plan: selectedPlan,
+            fullName: '',
+            email: '',
+            whatsapp: ''
+          });
+          onClose();
+        }, 2000);
+      } else {
+        throw new Error('Erro ao enviar email');
+      }
+
+    } catch (err: unknown) {
       console.error('Erro ao enviar formulário:', err);
-      setError('Erro ao enviar formulário. Tente novamente.');
+      const errorMessage = err instanceof Error 
+        ? err.message 
+        : (typeof err === 'object' && err !== null && 'text' in err && typeof err.text === 'string')
+          ? err.text
+          : (typeof err === 'object' && err !== null && 'message' in err && typeof err.message === 'string')
+            ? err.message
+            : 'Erro ao enviar formulário. Tente novamente.';
+      
+      console.error('Detalhes do erro:', {
+        text: typeof err === 'object' && err !== null && 'text' in err ? err.text : undefined,
+        status: typeof err === 'object' && err !== null && 'status' in err ? err.status : undefined,
+        message: err instanceof Error ? err.message : undefined
+      });
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -119,6 +171,15 @@ export default function LeadForm({ isOpen, onClose, selectedPlan }: LeadFormProp
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="bg-gray-50 p-3 rounded-md border border-gray-200">
+                <label className="block text-xs font-medium text-gray-500 mb-1">
+                  Plano de Interesse
+                </label>
+                <p className="text-lg font-semibold text-gray-800">
+                  {selectedPlan || formData.plan || 'Não selecionado'}
+                </p>
+              </div>
+              
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
                   Nome Completo *
