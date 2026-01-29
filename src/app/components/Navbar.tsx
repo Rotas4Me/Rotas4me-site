@@ -19,6 +19,7 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex space-x-8">
           <a href="#" className="text-white font-bold">Início</a>
           <a href="#solution" className="text-white">Solução</a>
+          <a href="#survey" className="text-white">Pesquisa</a>
           <a href="#price" className="text-white">Planos</a>
           <a href="#initiative" className="text-white">Iniciativa</a>
         </div>
@@ -60,6 +61,7 @@ const Navbar: React.FC = () => {
             <nav className="flex flex-col gap-8 items-center">
               <a href="#" className="text-white text-2xl font-bold" onClick={() => setMobileMenuOpen(false)}>Início</a>
               <a href="#solution" className="text-white text-2xl" onClick={() => setMobileMenuOpen(false)}>Solução</a>
+              <a href="#survey" className="text-white text-2xl" onClick={() => setMobileMenuOpen(false)}>Pesquisa</a>
               <a href="#price" className="text-white text-2xl" onClick={() => setMobileMenuOpen(false)}>Planos</a>
               <a href="#initiative" className="text-white text-2xl" onClick={() => setMobileMenuOpen(false)}>Iniciativa</a>
               <button

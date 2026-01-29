@@ -100,6 +100,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="survey" className="w-full py-10 md:py-16 lg:py-20 bg-white flex justify-center items-center">
+        <div className="max-w-3xl md:max-w-4xl lg:max-w-5xl w-full px-4 md:px-6 flex flex-col items-center text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#33363F] mb-4 md:mb-6 font-poppins">
+            Responda nossa pesquisa
+          </h2>
+          <p className="text-[#33363F] text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-2xl">
+            Queremos entender melhor como você se sente ao se deslocar pela cidade e como podemos tornar seus caminhos mais seguros.
+            Sua resposta é anônima e leva menos de 5 minutos.
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdhpALSqhnZMhIrFHwMpMEHRZ-z84givHVS3giVgKq3P-LoZQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-3.5 rounded-lg bg-[#D65E75] hover:bg-pink-600 text-white font-poppins font-semibold text-sm sm:text-base md:text-lg shadow-md transition-colors"
+          >
+            Responder pesquisa
+          </a>
+        </div>
+      </section>
+
       <section id="price" className="w-full py-10 md:py-16 lg:py-24 bg-white flex flex-col items-center">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#33363F] mb-8 md:mb-12 lg:mb-16 font-poppins text-center">
           Planos
